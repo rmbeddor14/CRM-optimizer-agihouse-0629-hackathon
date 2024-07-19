@@ -14,7 +14,8 @@ We created this project as part of the RAG 2.0 Hackathon @ Agihouse on June 29, 
 - Rachel Beddor 
 
 
-![alt text](img/image-1.png)
+<img src="img/image-1.png" alt="alt text" width="200">
+
 
 ### Project
 - Many small businesses keep records on excel spreadsheets. 
