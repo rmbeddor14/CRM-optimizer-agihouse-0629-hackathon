@@ -31,7 +31,12 @@ We created this project as part of the RAG 2.0 Hackathon @ Agihouse on June 29, 
 - In this example, the sales representative has been repeatedly in contact with Jamie Williams to try to get them approved for a mortgage. The sales representative has been taking notes of the conversation they are having with Jamie in the excel spreadsheet. 
 
 ### Demo 
-
+<div style="text-align: center;">
+    <video width="320" height="240" controls>
+        <source src="img/demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
 
 ### Architecture 
 ![alt text](img/image-2.png)
