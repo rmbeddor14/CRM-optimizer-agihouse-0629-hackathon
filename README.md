@@ -14,7 +14,7 @@ We created this project as part of the RAG 2.0 Hackathon @ Agihouse on June 29, 
 - Rachel Beddor 
 
 
-<img src="img/image-1.png" alt="alt text" width="200">
+<img src="img/image-1.png" alt="alt text" width="300">
 
 
 ### Project
