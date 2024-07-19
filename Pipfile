@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+unstructured-client = "*"
+pandas = "*"
+sentence-transformers = "*"
+faiss-cpu = "*"
+jupyter = "*"
+cassandra-driver = "*"
+astrapy = "*"
+flask = "*"
+orjson = "*"
+openai = "*"
+transformers = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

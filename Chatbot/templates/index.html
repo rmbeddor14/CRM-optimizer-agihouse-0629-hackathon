@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      .botText {
+        background-color: red;
+        color: white;
+        display: inline-block;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+      .userText {
+        background-color: teal;
+        color: white;
+        display: inline-block;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px 0;
+      }
+      #chatbox {
+        width: 80%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow-y: auto;
+        max-height: 500px;
+      }
+      #userInput {
+        width: 80%;
+        max-width: 600px;
+        margin: 10px auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      #textInput {
+        width: 75%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      #buttonInput {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: teal;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CRM Optimizer Chatbot</h1>
+    <div>
+      <div id="chatbox">
+        <p class="botText"><span>Ask me about your mortgage borrower clients!</span></p>
+      </div>
+      <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+      </div>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            console.log(botHtml);
+            $("#chatbox").append(botHtml);
+            $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+          });
+        }
+
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+    </div>
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>CRM Optimizer Chatbot</h1>
+    <div>
+      <div id="chatbox">
+        <p class="botText"><span>Ask me about your mortgage borrower clients!</span></p>
+      </div>
+      <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+      </div>
+      <script>
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        })
+      </script>
+    </div>
+  </body>
+</html> -->
